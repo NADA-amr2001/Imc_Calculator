@@ -8,14 +8,13 @@
     tools:context=".splash">
 
     <ImageView
+        android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/logo"
-        android:layout_marginTop="200dp"
         android:layout_marginLeft="150dp"
-        android:id="@+id/logo"
-        >
+        android:layout_marginTop="250dp"
+        android:src="@drawable/loggo">
 
     </ImageView>
 
@@ -37,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="200dp"
         android:lineSpacingExtra="20dp"
         android:text="IMC CALCULATOR"
         android:textColor="@color/white"

@@ -163,9 +163,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:thumbTint="@color/white"
             android:layout_marginBottom="20dp"
-            android:secondaryProgressTint="#FF4c4c">
+            android:secondaryProgressTint="#FF4c4c"
+            android:thumbTint="@color/white">
 
         </SeekBar>
 
@@ -330,11 +330,11 @@
     <android.widget.Button
         android:id="@+id/calculatebmi"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="15dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/buttonbackground"
         android:text="Calculer"
         android:textColor="@color/white"

@@ -15,16 +15,17 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     android.widget.Button mcalculatrbmi;
-    TextView mcurrebtheight,mcurrentage,mcurrentweight ;
-    ImageView mincrementage,mincrementweight,mdecrementage,mdecrementweight;
-    SeekBar mseeknarforheight;
-    RelativeLayout mmale,mfemale;
-    int intweight=55;
-    int intage=20;
-    int currentprogress;
-    String mintprogress="170";String typeofuser="0";
-    String weight2="55";
-    String age2="22";
+   static TextView mcurrebtheight,mcurrentage,mcurrentweight ;
+   static ImageView mincrementage,mincrementweight,mdecrementage,mdecrementweight;
+   static SeekBar mseeknarforheight;
+   static  RelativeLayout mmale,mfemale;
+   static int intweight=55;
+   static int intage=20;
+   static int currentprogress;
+    static String mintprogress="170";
+   static String typeofuser="0";
+   static String weight2="55";
+    static String age2="22";
 
 
 
@@ -33,10 +34,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if(getSupportActionBar() != null)
-        {
+
             getSupportActionBar().hide();
-        }
+
 
 
         mcalculatrbmi=findViewById(R.id.calculatebmi);
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    Intent intent=new Intent(MainActivity.this,imc.class);
+                    Intent intent=new Intent(MainActivity.this, imc.class);
 
                     intent.putExtra("gender",typeofuser);
                     intent.putExtra("height",mintprogress);

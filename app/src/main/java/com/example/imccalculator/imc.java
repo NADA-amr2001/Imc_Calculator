@@ -11,10 +11,11 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Button;
 
 public class imc extends AppCompatActivity {
 
-    android.widget.Button mrecalculatebmi;
+    Button mrecalculatebmi;
 
     TextView mbmidisplay,mbmicategory,mgender;
     Intent intent;
@@ -22,8 +23,12 @@ public class imc extends AppCompatActivity {
     String mbmi;
     float intbmi;
 
-    String height,weight;
-    float intheight,intweight;
+    String height;
+    String weight;
+
+   // float intheight,intweight;
+   float mweight=MainActivity.intweight;
+   float mheight=Float.parseFloat(MainActivity.mintprogress);
     RelativeLayout mbackground;
 
     @Override
@@ -31,11 +36,11 @@ public class imc extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imc);
 
-        getSupportActionBar().setElevation(0);
+       /* getSupportActionBar().setElevation(0);
         getSupportActionBar().setTitle(Html.fromHtml("<font color=\"white\"></font>"));
         getSupportActionBar().setTitle("Result");
         ColorDrawable colorDrawable=new ColorDrawable(Color.parseColor("1E1D1D"));
-        getSupportActionBar().setBackgroundDrawable(colorDrawable);
+        getSupportActionBar().setBackgroundDrawable(colorDrawable);*/
 
         intent=getIntent();
 
@@ -49,48 +54,51 @@ public class imc extends AppCompatActivity {
         height=intent.getStringExtra("height");
         weight=intent.getStringExtra("weight");
 
-        intheight=Float.parseFloat(height);
-        intweight=Float.parseFloat(weight);
+       /* mheight=Float.parseFloat(height);
+        mweight=Float.parseFloat(weight);*/
 
-        intheight=intheight/100;
+        mheight=mheight/100;
 
-        intbmi=intweight/(intheight*intheight);
+        intbmi=mweight/(mheight*mheight);
+        //System.out.println(intbmi);
 
-        mbmi=Float.toString(intbmi);
+
+        mbmi=String.valueOf(intbmi);
+        mbmidisplay.setText(mbmi);
 
         if(intbmi<16)
         {
-            mbmicategory.setText("several Thiness");
-            mbackground.setBackgroundColor(Color.RED);
+            mbmicategory.setText("R9iiiii9(a) bzzzf ");
+            mbackground.setBackgroundColor(Color.BLUE);
             mimageview.setImageResource(R.drawable.cross);
         }
         else if(intbmi<16.9 && intbmi>16)
         {
-            mbmicategory.setText("Moderate thiness");
-            mbackground.setBackgroundColor(Color.RED);
+            mbmicategory.setText("Chwi r9iiii9(a)");
+            mbackground.setBackgroundColor(Color.BLUE);
             mimageview.setImageResource(R.drawable.warning);
         }
         else if(intbmi<18.4 && intbmi>17)
         {
-            mbmicategory.setText("Mild thiness");
-            mbackground.setBackgroundColor(Color.RED);
+            mbmicategory.setText("R9iii9(a) f les normes");
+            mbackground.setBackgroundColor(Color.YELLOW);
             mimageview.setImageResource(R.drawable.warning);
         }
         else if(intbmi<25 && intbmi>18.4)
         {
-            mbmicategory.setText("Normal");
-           // mbackground.setBackgroundColor(Color.YELLOW);
+            mbmicategory.setText("trés belle taille 'ki sbaa3' ");
+            mbackground.setBackgroundColor(Color.GRAY);
             mimageview.setImageResource(R.drawable.ok);
         }
         else if(intbmi<29.4 && intbmi>25)
         {
-            mbmicategory.setText("OverWeight");
+            mbmicategory.setText("OverWeight'lzm tna9as chwi'");
             mbackground.setBackgroundColor(Color.RED);
             mimageview.setImageResource(R.drawable.warning);
         }
         else
         {
-            mbmicategory.setText("Obese class I");
+            mbmicategory.setText("Obese ! 'lzm dir régime ");
             mbackground.setBackgroundColor(Color.RED);
             mimageview.setImageResource(R.drawable.warning);
         }
@@ -99,15 +107,14 @@ public class imc extends AppCompatActivity {
         mbmidisplay.setText(mbmi);
 
 
-        getSupportActionBar().hide();
-        mrecalculatebmi=findViewById(R.id.recalculatebmi);
+       // getSupportActionBar().hide();
+        //mrecalculatebmi=findViewById(R.id.recalculatebmi);
 
         mrecalculatebmi.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(imc.this,MainActivity.class);
-                startActivity(intent);
-                finish();
+            public void onClick(View v) {
+                Intent intent1=new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent1);
             }
         });
     }
